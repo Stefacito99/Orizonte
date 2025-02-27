@@ -1,0 +1,23 @@
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .social-icons a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  input {
+    padding: 5px;
+    margin-top: 10px;
+  }
+  
+  button {
+    padding: 5px 10px;
+    margin-left: 5px;
+  }
+  
