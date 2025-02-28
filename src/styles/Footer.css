@@ -1,23 +1,37 @@
 .footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .social-icons a {
-    margin: 0 10px;
-    color: white;
-    text-decoration: none;
-  }
-  
-  input {
-    padding: 5px;
-    margin-top: 10px;
-  }
-  
-  button {
-    padding: 5px 10px;
-    margin-left: 5px;
-  }
-  
+  text-align: center;
+  padding: 20px;
+}
+
+.footer.light {
+  background-color: #F8F3DE;
+  color: black;
+}
+
+.footer.dark {
+  background-color: #1D1D1B;
+  color: white;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer.light .social-icons a {
+  color: black;
+}
+
+.footer.dark .social-icons a {
+  color: white;
+}
+
+input {
+  padding: 5px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  margin-left: 5px;
+}

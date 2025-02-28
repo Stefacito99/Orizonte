@@ -1,7 +1,25 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  }
-  
+  font-family: 'HK Grotesk', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  letter-spacing: 0.05em; /* Interletrado: 50 */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bronx', sans-serif;
+  letter-spacing: 0; /* Interletrado: 0 */
+}
+
+:root {
+  --background-color-light: #F5F5F5;
+  --background-color-dark: #333333;
+}
+
+body.light {
+  --background-color: var(--background-color-light);
+}
+
+body.dark {
+  --background-color: var(--background-color-dark);
+}

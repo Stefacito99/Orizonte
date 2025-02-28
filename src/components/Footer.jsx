@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 import '../styles/Footer.css';
 
 const Footer = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <footer className='footer' id='contact'>
+    <footer className={`footer ${theme}`} id='contact'>
       <p>Contacto:</p>
       <div className='social-icons'>
         <a href='https://wa.me/123456789' target='_blank' rel='noopener noreferrer'>WhatsApp</a>

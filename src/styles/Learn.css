@@ -1,4 +1,14 @@
 .learn {
-    padding: 20px;
-  }
-  
+  padding: 20px;
+}
+
+.learn h1 {
+  font-family: 'Bronx', sans-serif;
+  letter-spacing: 0; /* Interletrado: 0 */
+}
+
+.learn p {
+  font-family: 'HK Grotesk', sans-serif;
+  font-weight: 600; /* Semibold */
+  letter-spacing: 0.05em; /* Interletrado: 50 */
+}
