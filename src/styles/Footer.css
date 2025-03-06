@@ -1,29 +1,25 @@
 .footer {
   text-align: center;
   padding: 20px;
+  font-size: 1.4em; /* Aumenta el tamaño de la fuente */
 }
 
 .footer.light {
   background-color: #F8F3DE;
-  color: black;
+  color: var(--text-color-light);
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el tema claro */
 }
 
 .footer.dark {
   background-color: #1D1D1B;
-  color: white;
+  color: var(--text-color-dark);
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5); /* Sombra para el tema oscuro */
 }
 
 .social-icons a {
   margin: 0 10px;
   text-decoration: none;
-}
-
-.footer.light .social-icons a {
-  color: black;
-}
-
-.footer.dark .social-icons a {
-  color: white;
+  color: var(--text-color);
 }
 
 input {

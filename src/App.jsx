@@ -15,14 +15,18 @@ const App = () => {
   }, [theme]);
 
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/learn' element={<Learn />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <div className="app">
+      <Router>
+        <Navbar />
+        <div className="content">
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/learn' element={<Learn />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
+    </div>
   );
 };
 

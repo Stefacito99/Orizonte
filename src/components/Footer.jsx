@@ -14,7 +14,7 @@ const Footer = () => {
         <a href='mailto:contacto@tuempresa.com'>Email</a>
       </div>
       <p>Suscribite a nuestro newsletter</p>
-      <input type='email' placeholder='Tu correo' />
+      <input type='email' placeholder='orizonte@gmail.com' />
       <button>Suscribirse</button>
     </footer>
   );
