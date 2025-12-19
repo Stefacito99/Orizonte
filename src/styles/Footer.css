@@ -1,33 +1,71 @@
 .footer {
   text-align: center;
-  padding: 20px;
-  font-size: 1.4em; /* Aumenta el tamaño de la fuente */
+  padding: 8px 12px; /* menos alto */
+  font-size: 1.1em; /* tamaño base */
 }
 
 .footer.light {
   background-color: #F8F3DE;
   color: var(--text-color-light);
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el tema claro */
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .footer.dark {
   background-color: #1D1D1B;
   color: var(--text-color-dark);
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5); /* Sombra para el tema oscuro */
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.45);
 }
 
+/* contenedor de los iconos (reemplaza texto por imagenes) */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* enlaces/iconos */
 .social-icons a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: var(--text-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;   /* caja del icono */
+  height: 50px;
+  padding: 4px;
+  background: transparent;
+  border: none;
+  text-decoration: none; /* sin subrayado */
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease;
+  color: var(--text-color); /* por si hay texto alternativo */
 }
 
-input {
-  padding: 5px;
-  margin-top: 10px;
+.social-icons a img {
+  width: 80px;
+  height: auto;
+  display: block;
+  pointer-events: none; /* para que el click lo reciba el <a> */
+  user-select: none;
 }
 
-button {
-  padding: 5px 10px;
-  margin-left: 5px;
+/* tamaño específico sólo para el icono de mail */
+.social-icons img.mail-icon {
+  width: 50px; /* ajusta este valor al tamaño deseado */
+}
+
+/* efecto al pasar el mouse (sólo agrandar un poco) */
+.social-icons a:hover {
+  transform: scale(1.08);
+  filter: brightness(1.03);
+}
+
+/* evitar cambio de color/efecto azul en mobile al tocar */
+.copy-email-link {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* accesibilidad: foco visible pero discreto */
+.social-icons a:focus-visible {
+  outline: 2px solid rgba(0,0,0,0.12);
+  outline-offset: 2px;
 }

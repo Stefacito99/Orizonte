@@ -1,64 +1,62 @@
+:root {
+  --background-color-light: #F5F5F5;
+  --background-color-dark: #111111;
+  --text-color-light: #111;
+  --text-color-dark: #fff;
+}
+
+/* cuerpo y fondo fijo + animación de fade-in (arranca casi transparente, espera 1s y hace fade) */
 body {
   font-family: 'HK Grotesk', sans-serif;
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
-  letter-spacing: 0.05em; /* Interletrado: 50 */
+  letter-spacing: 0.05em;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+  /* background image properties (se definirán por tema) */
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
-  background-attachment: fixed;
-  animation: fadeInBackground 1.5s forwards 1s; /* Añade la animación con un retraso de 1 segundo */
-  opacity: 0.001; /* Inicia con opacidad baja */
+  background-size: cover;            /* cubrir toda la pantalla */
+  background-attachment: fixed;      /* fondo fijo */
+  background-blend-mode: normal;
+
+  /* animación: queda 1s en opacidad cercana a 0 luego hace fade a 1 */
+  opacity: 0.001;
+  animation: fadeInBackground 1.5s forwards 1s;
+
+  /* evitar scroll horizontal, permitir vertical */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 @keyframes fadeInBackground {
-  from {
-    opacity: 0.001;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0.001; }
+  to   { opacity: 1; }
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Bronx', sans-serif;
-  letter-spacing: 0; /* Interletrado: 0 */
-}
-
-:root {
-  --background-color-light: #F5F5F5;
-  --background-color-dark: #333333;
-  --text-color-light: black;
-  --text-color-dark: white;
-}
-
+/* tema claro / oscuro: cambian imagen de fondo y variables de color */
 body.light {
   --background-color: var(--background-color-light);
   --text-color: var(--text-color-light);
-  background-image: url('../assets/logoOscuro.png');
+  background-image: url('../assets/Wallpaper/wallpaperClaro.png');
 }
 
 body.dark {
   --background-color: var(--background-color-dark);
   --text-color: var(--text-color-dark);
-  background-image: url('../assets/logoClaro.png');
+  background-image: url('../assets/Wallpaper/wallpaperOscuro.png');
 }
 
+/* texto general usa variable segun tema */
 body, p, a, li {
   color: var(--text-color);
 }
 
-.app {
+/* layout app */
+#root, .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;

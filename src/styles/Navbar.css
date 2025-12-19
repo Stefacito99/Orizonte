@@ -1,59 +1,157 @@
+/* ...existing code... */
+
+:root {
+  --navbar-height: 72px;
+  --navbar-bg-light: rgba(248,243,222,0.95);
+  --navbar-bg-dark: rgba(29,29,27,0.75);
+  --navbar-translucent: rgba(255,255,255,0.03);
+}
+
+/* navbar fijo y elegante */
 .navbar {
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    font-size: 1.4em;
-  }
-  
-  .navbar.light {
-    background-color: #F8F3DE;
-    color: var(--text-color-light);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el tema claro */
-  }
-  
-  .navbar.dark {
-    background-color: #1D1D1B;
-    color: var(--text-color-dark);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para el tema oscuro */
-  }
-  
-  .navbar ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    width: 100%;
-    align-items: center;
-  }
-  
-  .navbar ul li {
-    margin: 0 10px;
-    flex-grow: 1;
-    text-align: center;
-  }
-  
-  .navbar ul li:first-child {
-    margin-right: auto; /* Mueve el primer elemento (theme-switch) más a la izquierda */
-  }
-  
-  .navbar ul li:nth-child(3) {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .navbar ul li a {
-    text-decoration: none;
-    color: var(--text-color);
-  }
-  
-  .theme-switch {
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 1em;
-  }
-  
-  .logo {
-    width: 40px;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 1000;
+  background: var(--navbar-translucent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background-color 180ms ease, box-shadow 180ms ease;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+/* color de fondo según tema (mantiene look previo) */
+.navbar.light {
+  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.6));
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+}
+
+.navbar.dark {
+  background: linear-gradient(180deg, rgba(10,10,10,0.6), rgba(10,10,10,0.55));
+  box-shadow: 0 6px 26px rgba(0,0,0,0.45);
+}
+
+/* contenedor central de items */
+.navbar ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  gap: 14px;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  justify-content: center;
+}
+
+/* botones extremos: switch a la izquierda, logo a la derecha */
+.navbar ul li:first-child {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.navbar ul li:last-child {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* links del nav */
+.navbar ul li a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+.navbar ul li a:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: rgba(0,0,0,0.03);
+}
+
+/* theme switch (button con img) */
+.theme-switch {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 120ms ease, transform 120ms ease;
+}
+
+.theme-switch:hover {
+  background: rgba(0,0,0,0.04);
+}
+
+.theme-switch:active {
+  transform: scale(0.98);
+}
+
+/* asegurar que la imagen no "coma" el click */
+.theme-switch img {
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  height: auto;
+  transition: transform 120ms ease;
+}
+
+/* tamaño base y tamaños individuales por icono para que queden bien */
+.theme-icon {
+  width: 24px;
+  height: auto;
+}
+
+/* si necesitás tamaños distintos los controlás con clases */
+.theme-icon.moon-icon { width: 20px; }  /* ajusta si la luna es más compacta */
+.theme-icon.sun-icon  { width: 28px; }  /* ajusta si el sol necesita más ancho */
+
+/* foco accesible discreto */
+.theme-switch:focus-visible {
+  outline: 2px solid rgba(0,0,0,0.12);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* logo a la derecha */
+.logo {
+  height: calc(var(--navbar-height) * 0.6);
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* responsive tweaks */
+@media (max-width: 800px) {
+  .navbar { padding: 6px 10px; }
+  .navbar ul { gap: 10px; max-width: 980px; }
+  .theme-icon { width: 20px; }
+  .theme-icon.sun-icon { width: 22px; }
+  .logo { height: calc(var(--navbar-height) * 0.55); }
+}
+
+@media (max-width: 480px) {
+  .navbar { padding: 6px 8px; }
+  .navbar ul li:first-child { left: 8px; }
+  .navbar ul li:last-child { right: 8px; }
+  .theme-icon { width: 18px; }
+  .logo { height: calc(var(--navbar-height) * 0.5); }
+}
+
+/* ...existing code... */
